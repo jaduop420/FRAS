@@ -52,7 +52,7 @@ class Student:
         Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold")) 
         Left_frame.place(x=10,y=10,width=760,height=580)   
 
-        img_left=Image.open(r"images\traning 8.jpg")
+        img_left=Image.open(r"D:\FRAS python\images\traning 8.jpg")
         img_left=img_left.resize((750,130),Image.Resampling.LANCZOS)
         self.photoimage=ImageTk.PhotoImage(img_left)
 
@@ -164,34 +164,133 @@ class Student:
         phone_div_entry.grid(row=3,column=3,padx=10,pady=5,sticky=W)
         
         #address
-        class_div_label=Label(class_Student_frame,text='address',font=("times new roman",13,'bold'),bg='white') 
-        class_div_label.grid(row=4,column=0,padx=10,pady=5,sticky=W)
+        address_div_label=Label(class_Student_frame,text='address',font=("times new roman",13,'bold'),bg='white') 
+        address_div_label.grid(row=4,column=0,padx=10,pady=5,sticky=W)
         
-        class_div_entry=ttk.Entry(class_Student_frame,width=20,font=("times new roman",13,'bold'))
-        class_div_entry.grid(row=4,column=1,padx=10,pady=5,sticky=W)
+        address_div_entry=ttk.Entry(class_Student_frame,width=20,font=("times new roman",13,'bold'))
+        address_div_entry.grid(row=4,column=1,padx=10,pady=5,sticky=W)
       
         #teacher name
-        class_div_label=Label(class_Student_frame,text='Teacher name',font=("times new roman",13,'bold'),bg='white') 
-        class_div_label.grid(row=4,column=2,padx=10,pady=5,sticky=W)
+        teacher_div_label=Label(class_Student_frame,text='Teacher name',font=("times new roman",13,'bold'),bg='white') 
+        teacher_div_label.grid(row=4,column=2,padx=10,pady=5,sticky=W)
         
-        class_div_entry=ttk.Entry(class_Student_frame,width=20,font=("times new roman",13,'bold'))
-        class_div_entry.grid(row=4,column=3,padx=10,pady=5,sticky=W)
+        teacher_div_entry=ttk.Entry(class_Student_frame,width=20,font=("times new roman",13,'bold'))
+        teacher_div_entry.grid(row=4,column=3,padx=10,pady=5,sticky=W)
+        #radio buttons
+        radiobtn1=ttk.Radiobutton(class_Student_frame,text="Take photo sample",value="yes")
+        radiobtn1.grid(row=6,column=0)
      
-              
-              
-              
-              
-              
-              
-              
-              
+        radiobtn2=ttk.Radiobutton(class_Student_frame,text="No photo sample",value="no")
+        radiobtn2.grid(row=6,column=1)    
+        #buttons frame
+        btn_frame=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame.place(x=0,y=200,width=715,height=35)  
+
+        #savebutton
+        save_btn=Button(btn_frame,text="Save",width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        save_btn.grid(row=0,column=0)
+        #updATE     
+        update_btn=Button(btn_frame,text="Update",width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        update_btn.grid(row=0,column=1)
+        #delete                
+        delete_btn=Button(btn_frame,text="Delete",width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        delete_btn.grid(row=0,column=2)
+        #reset                
+        reset_btn=Button(btn_frame,text="Reset",width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        reset_btn.grid(row=0,column=3)
+
+
+        btn_frame1=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame1.place(x=0,y=235,width=715,height=35)  
+
+         #take photo sample               
+        takesample_btn=Button(btn_frame1,text="Take a photo sample",width=35,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        takesample_btn.grid(row=0,column=0)              
+         # updtephoto    
+        updatephoto_btn=Button(btn_frame1,text="Update photo sample",width=35,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        updatephoto_btn.grid(row=0,column=1)              
               
       
 
-               #right side label frame
+        #right side label frame
 
-        # Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"),bg='white') 
-        # Right_frame.place(x=780,y=10,width=660,height=580)            
+        Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold")) 
+        Right_frame.place(x=780,y=10,width=720,height=580)  
+        
+        img_Right=Image.open(r"D:\FRAS python\images\DATA9.png")
+        img_Right=img_Right.resize((720,130),Image.Resampling.LANCZOS)
+        self.photoimage_Right=ImageTk.PhotoImage(img_Right)
+
+        f_lbl=Label(Right_frame,image=self.photoimage_Right)
+        f_lbl.place(x=5,y=0,width=720,height=130)
+
+        #========search system==========#
+        search_frame=LabelFrame(Right_frame,bd=2,bg="white",relief=RIDGE,text="Search system",font=("times new roman",12,"bold")) 
+        search_frame.place(x=5,y=135,width=710,height=70)  
+
+        search_label=Label(search_frame,text='Search By',font=("times new roman",15,'bold'),bg='red',fg='white') 
+        search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
+
+        search_combo = ttk.Combobox(search_frame,font=("times new roman",13,'bold'), width=15)
+        search_combo['values'] = ("Select ","Roll_no","phone_no")
+        search_combo.current(0)
+        search_combo.grid(row=0, column=1, padx=2, sticky=W)
+
+        search_entry=ttk.Entry(search_frame,width=15,font=("times new roman",13,'bold'))
+        search_entry.grid(row=0,column=2,padx=10,pady=5,sticky=W)        
+
+
+        search_btn=Button(search_frame,text="Search",width=12,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        search_btn.grid(row=0,column=3,padx=4)
+
+        showall_btn=Button(search_frame,text="Show_All",width=12,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        showall_btn.grid(row=0,column=4,padx=4)        
+#table#####################################
+        table_frame=Frame(Right_frame,bd=2,bg="white",relief=RIDGE) 
+        table_frame.place(x=5,y=210,width=710,height=350) 
+
+        Scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL) 
+        Scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
+        
+        self.student_table=ttk.Treeview(table_frame,column=("dep","course","year","sem","id","name","div","roll","gender","dob","email","gender","phone","address","photo","teacher"),xscrollcommand=Scroll_x.set,yscrollcommand=Scroll_y.set)
+
+        Scroll_x.pack(side=BOTTOM,fill=X)
+        Scroll_y.pack(side=RIGHT,fill=Y)
+        Scroll_x.config(command=self.student_table.xview)
+        Scroll_y.config(command=self.student_table.yview)
+
+
+        self.student_table.heading("dep",text="Department")
+        self.student_table.heading("course",text="course")
+        self.student_table.heading("year",text="Year")
+        self.student_table.heading("sem",text="Semester")
+        self.student_table.heading("id",text="StudentId")
+        self.student_table.heading("name",text="Name")
+        self.student_table.heading("div",text="Division")
+        self.student_table.heading("dob",text="DOB")
+        self.student_table.heading("email",text="Email")
+        self.student_table.heading("phone",text="Phone")
+        self.student_table.heading("address",text="Address")
+        self.student_table.heading("teacher",text="Teacher")
+        self.student_table.heading("photo",text="photosamplestatus")
+        self.student_table["show"]="headings"
+        self.student_table.column("dep",width=100)
+        self.student_table.column("course",width=100)
+        self.student_table.column("year",width=100)
+        self.student_table.column("sem",width=100)
+        self.student_table.column("id",width=100)
+        self.student_table.column("name",width=100)
+        self.student_table.column("div",width=100)
+        self.student_table.column("dob",width=100)
+        self.student_table.column("email",width=100)
+        self.student_table.column("phone",width=100)
+        self.student_table.column("address",width=100)
+        self.student_table.column("teacher",width=100)
+        self.student_table.column("photo",width=150)
+
+        self.student_table.pack(fill=BOTH,expand=1)
+        self.student_table.column("dep",width=100)
+
 
 if __name__ == "__main__":
     root=Tk()
