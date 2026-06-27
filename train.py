@@ -18,7 +18,7 @@ class Train:
         title_lbl=Label (self.root,text="TRAIN DATA SET",font=("times new roman",35,"bold"),bg="white",fg="blue")
         title_lbl.place(x=0,y=0,width=1530,height=45)
   
-        img_top=Image.open(r"C:\Users\mansi\OneDrive\Desktop\Chapter 3\face recognition")
+        img_top=Image.open(r"D:\FRAS python\images\train.jpg")
         img_top=img_top.resize((1530,325),Image.Resampling.LANCZOS)
         self.photoimage_top=ImageTk.PhotoImage(img_top)
 
@@ -29,7 +29,7 @@ class Train:
         b1_1=Button(self.root,text="TRAIN DATA", command=self.train_classifier,cursor="hand2",font=("times new roman",30,"bold"),bg="white",fg="sky blue")
         b1_1.place(x=0,y=380,width=1530,height=60)
 
-        img_bottom=Image.open(r"C:\Users\mansi\OneDrive\Desktop\Chapter 3\face recognition")
+        img_bottom=Image.open(r"D:\FRAS python\images\train2.jpg")
         img_bottom=img_bottom.resize((1530,325),Image.Resampling.LANCZOS)
         self.photoimage_bottom=ImageTk.PhotoImage(img_bottom)
 
@@ -62,17 +62,6 @@ class Train:
         cv2.destroyAllWindows()
         messagebox.showinfo("Result","Training dataset completed!!")
                
-
-        
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

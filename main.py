@@ -2,6 +2,10 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk
 from student import Student
+import os
+from train import Train
+from face_recognisation import Face_Recognition
+
 
 class Face_Recognition_System:
     def __init__(self,root):
@@ -63,11 +67,11 @@ class Face_Recognition_System:
         img5=img5.resize((220,220),Image.Resampling.LANCZOS)
         self.photoimage5=ImageTk.PhotoImage(img5)
 
-        b2=Button(bg_img,image=self.photoimage5,cursor="hand2")
+        b2=Button(bg_img,image=self.photoimage5,cursor="hand2",command=self.face_data)
         b2.place(x=500,y=100,width=220,height=220)
              
 
-        b2_2=Button(bg_img,text="FACE DETECTOR",cursor="hand2",font=("times new roman",15,"bold"),bg="dark blue",fg="white")
+        b2_2=Button(bg_img,text="FACE DETECTOR",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="dark blue",fg="white")
         b2_2.place(x=500,y=300,width=220,height=40)
                      
         #session logs button     
@@ -100,11 +104,11 @@ class Face_Recognition_System:
         img8=img8.resize((220,220),Image.Resampling.LANCZOS)
         self.photoimage8=ImageTk.PhotoImage(img8)
 
-        b5=Button(bg_img,image=self.photoimage8,cursor="hand2")
+        b5=Button(bg_img,image=self.photoimage8,cursor="hand2",command=self.train_data)
         b5.place(x=200,y=400,width=220,height=220)
              
 
-        b5_5=Button(bg_img,text="MODEL TRAINING",cursor="hand2",font=("times new roman",15,"bold"),bg="dark blue",fg="white")
+        b5_5=Button(bg_img,text="MODEL TRAINING",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="dark blue",fg="white")
         b5_5.place(x=200,y=600,width=220,height=40)  
 
         #detect face button     
@@ -112,11 +116,11 @@ class Face_Recognition_System:
         img9=img9.resize((220,220),Image.Resampling.LANCZOS)
         self.photoimage9=ImageTk.PhotoImage(img9)
 
-        b6=Button(bg_img,image=self.photoimage9,cursor="hand2")
+        b6=Button(bg_img,image=self.photoimage9,cursor="hand2",command=self.open_image)
         b6.place(x=500,y=400,width=220,height=220)
              
 
-        b6_6=Button(bg_img,text="PHOTOS LIBRARY",cursor="hand2",font=("times new roman",15,"bold"),bg="dark blue",fg="white")
+        b6_6=Button(bg_img,text="PHOTOS LIBRARY",cursor="hand2",command=self.open_image,font=("times new roman",15,"bold"),bg="dark blue",fg="white")
         b6_6.place(x=500,y=600,width=220,height=40)                   
 
         #DEVELOPER button     
@@ -143,11 +147,24 @@ class Face_Recognition_System:
         b8_8=Button(bg_img,text="LOG OUT",cursor="hand2",font=("times new roman",15,"bold"),bg="dark blue",fg="white")
         b8_8.place(x=1100,y=600,width=220,height=40)  
 
+    def open_image(self):
+        os.startfile("data")
 
-                ##################Function button##############
+
+                    ##################Function button##############
     def student_details(self):
         self.new_window=Toplevel(self.root)
         self.app=Student(self.new_window)            
+    
+    
+    def train_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Train(self.new_window)      
+   
+    def face_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Face_Recognition(self.new_window)   
+
 
 
 
